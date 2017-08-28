@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Antonio Montalvo">
+    <meta name="description" content="An Introduction to HTTP and URL Modules">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="assets/normalize.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <script src="js/jquery-3.2.1.js" type="text/javascript" charset="utf-8"></script>
+    <link rel="stylesheet" href="assets/node.css">
+    <title>HTTP and URL Modules</title>
+</head>
+
+<body>
+    <div class="jumbotron">
+        <h1 class="display-3">The HTTP and URL Modules</h1>
+        <hr class="my-4">
+    </div>
+    <ul class=" nav nav-pills justify-content-end">
+        <li class="nav-item"><a class="nav-link" href="node-basics.html">Introducing Node.js</a></li>
+        <li class="nav-item"><a class="nav-link " href="#">The HTTP and URL Modules</a></li>
+        <li class="nav-item"><a class="nav-link" href="readingHTMLfiles.html">Reading HTML files</a></li>
+    </ul>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2>HTTP Module</h2>
+                <p>The way the internet works you have Clients and Servers. The Clients make requests to the Servers, the Servers return some reponse and then the Clients knows what to do with that. With the HTTP module we can create servers and clients.</p>
+                <p>If you go to the Documentation you'll find a list of what the HTTP module is capable of.</p>
+                <ul>
+                    <li>http.Agent</li>
+                    <li>http.ClientRequest</li>
+                    <li>http.Server</li>
+                    <li>http.ServerResponse</li>
+                    <li>http.IncomingMessage</li>
+                    <li>http.METHODS</li>
+                    <li>http.STATUS_CODES</li>
+                    <li>http.createServer</li>
+                    <li>http.get</li>
+                    <li>http.globalAgent</li>
+                    <li>http.request</li>
+                </ul>
+                <p>To use the HTTP server one must <code>require('http')</code>.</p>
+                <p>To create a Server we must use <code>http.createServer([requestListener])</code>, where [requestListener] is a function which is automatically added to the 'request' event. This function will handle what to do or what happens with both the request and the response with the methods available in the list above.</p>
+                <p>Now that we have created the Server, we must make it "listen". For that we use the <code>server.listen(handle[, callback])</code> method. The handle object can be set to either a server, socket or object. This will cause the server to accept connections on the specified handle. This function is asynchronous. callback will be added as a listener for the 'listening' event.</p>
+                <p>All done, now navigate to the js directory and run <code>node firstServer.js</code>. You should see a message in the terminal. Also open your browser and  type <code>http://localhost3000</code>. It Works!!
+                <p>Let's see the code for that.</p>
+                <img src="assets/images/first-server.png">
+                <h4>What else can we do with HTTP?</h4>
+                <p>Well, we have one server running. But Node.js is much more capable than that. We can have as many servers as we want running at the same time. I have created two other servers. Run <code>node manyServers.js</code>. Super Cool! now we can have several servers doing different thing all of them listening ALL the time.</p>
+                <h2>Responding to different requests with the URL module</h2>
+                <p>Most of the time your application wont respond to one request only. When in need of responding to more than one type of request we need to add <b>routes</b>. The URL module makes it possible to read and parse a URL and doSomething with the output.</p>
+                <p>As with HTTP module the URL module comes with ample documentation. Since this section's purpose is to introduce Node.js modules and because we will shortly use the Express framework to achive the same results, we are not going to spend to much time here. That being said lets use some of the methods availabe to us in URL to set up <b>routes</b>.</p>
+                <p>First we need to require both <code>require('http')</code> and <code>require('url');</code></p>
+                <p>Now remember that all we are doing here is to use the URL which is a <i>String</i>. A URL string is a structured string containing multiple meaningful components. When parsed, a URL object is returned containing properties for each of these components. The url module provides  the WHATWG API for working with URLs. Before we continue adding routes, let's pause a second for an important subject. Take a look at the image below for a better understanding of the URL components.</p>
+                <h4> Above the URL 'http://user:pass@sub.host.com:8080/p/a/t/h?query=string#hash', properties of an object returned by the legacy url.parse() are shown. Below it are properties of a WHATWG URL object.</h4>
+                <img src="assets/images/url.png">
+                <p>That was a bit lengthy but also priceless. Since requests to servers and data transmition is done via a <i>String</i> a deeper understanding of the url goes a long way.</p>
+                <p>Ok, back to our task. We can use the URL Legacy method url.parse() and .pathname to parse the url in the request and get the path portion of the url. Once we have that we can implement the logic to tell the server what to do with every type of request to our server. See the code below for more clarity. In your terminal type <code>node URLroutes.js</code></p>
+                <img src="assets/images/URLroutes.png">
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+</body>
+
+</html>

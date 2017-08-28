@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Antonio Montalvo">
+    <meta name="description" content="An Introduction to Node.js">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="assets/normalize.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <script src="js/jquery-3.2.1.js" type="text/javascript" charset="utf-8"></script>
+    <link rel="stylesheet" href="assets/node.css">
+    <title>Intro to Node.js</title>
+</head>
+
+<body>
+    <div class="jumbotron">
+        <h1 class="display-3">Node.js</h1>
+        <hr class="my-4">
+    </div>
+    
+        <ul class=" nav nav-pills justify-content-end">
+            <li class="nav-item"><a class="nav-link" href="#">Introducing Node.js</a></li>
+            <li class="nav-item"><a class="nav-link " href="httpURL.html">The HTTP and URL Modules</a></li>
+            <li class="nav-item"><a class="nav-link" href="readingHTMLfiles.html">Readinf HTML files</a></li>
+        </ul>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>An introduction</h1>
+                <p>In network programming, Node.js give us the opportunity to add server-side code to our applications with JavaScript. We will be able to create a server to handle the client's requests, and also create HTTP clients. Now we can read and write data to and from different places and to millions of users.</p>
+                <p>Node.js uses the V8 engine created by Google's engineers for the Google Chrome web browser.</p>
+            </div>
+            <div class="col-lg-12">
+                <h2>API Documentation</h2>
+                <a class="navbar-brand" href="https://nodejs.org/dist/latest-v8.x/docs/api/" target="_blanck">This link will take you to the Docs.</a>.
+                <p>Here you can find all pertinent subjects. Node.js is based on <b>Modules</b> which are basically libraries. Some of this libraries come built-in with Node.js and are available to you with the download. Others are built by developers; most of them open source.</p>
+                <h2>How do we use it?</h2>
+                <p>Once you have it installed simply type node on the terminal and run it. Node.js has REPL, which stands for "READ EVAL PRINTLOOP. With REPL now you just have to add your code and it will be evaluated and printed right in the terminal. See below:</p>
+                <img src="assets/images/firstNode.png">
+                <h2>Opening a JavaScript file</h2>
+                <p>Let say that you have cloned this into your computer from GitHub. There is a JavaScript file that once you open it will print "Hello Node.js" in the terminal. To open this file via Node.js simply navigate to the directory containing the color.js file type in the terminal node followed by the name of the file like this <code> node colors.js</code></p>
+                <h2>Built in modules and npm (Node Package Manager)</h2>
+                <p>Node comes with built in functions and modules included with your instalation. Check Node's documentation for modules here:
+                    <a href="https://nodejs.org/api/modules.html" target="_blank">
+                        <button type="text"><i>Built in modules!</i></button>
+                    </a>
+                </p>
+                <p>Packages are a way for JavaScript developers to reuse code. These bits of reusable code are called packages, or sometimes modules. A package is just a directory with one or more files in it, that also has a file called "package.json" with some metadata about this package. npm (Node Package Manager) it's a way to reuse code from other developers, and also a way to share your code with them, and it makes it easy to manage the different versions of code.</p>
+                <h2>Installing Modules</h2>
+                <p>A package <i>(also called a <b>module</b>)</i> can be downloaded with the command;</p>
+                <code><b>npm install package_name</b></code>
+                <p>The package will be downloaded to a directory <b>node_modules</b> located in your current directory (if it doesn't already exists)</p>
+                <h2>Modules explained.</h2>
+                <p>Since we are no longer using client-side code, we must find a way to access files, libraries and data. Node.js uses modules and the <i>keyword</i> <b>require</b> for that. In Node.js, files and modules are in one-to-one correspondence (each file is treated as a separate module). Normally for best practice you'll store it in a variable with the same name as the module like this</p>
+                <code><b>var module_name = require("module_name");</b></code></p>
+                <p>Let see this in action with an example. The Node-Basics directory contains two .js files. I've written some code in nodeBasic.js that uses data from colors.js. Let's see both files side by side.</p>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <img src="assets/images/nodeBasic.png">
+                    </div>
+                    <div class="col-sm-6">
+                        <img src="assets/images/colors.png">
+                    </div>
+                </div>
+                <p>When you run <code> node nodeBasics.js </code>, the REPL shows this:</p>
+                <img src="assets/images/output.png">
+                <h2>Local vs. Global Installation</h2>
+                <p>The default behavior for the installation is for the module to be installed locally. However, if you want to use it as a command line tool, then you want to install it globally. The command to install globally uses the flag <b><i>-g</i></b>, for example:</p>
+                <code><b>npm install express -g</b></code>
+                <h2>package.json</h2>
+                <p>You can specify your application dependencies with a package.json file. This is the best way to manage locally installed packages. As this file contains all dependencies information, you don't have to install every package at a time and reduces the chances of error. You can create package.json running the command</p>
+                <code><b>npm init</b></code>
+                <p>Follow the steps in the terminal to configure it. The easier (and more awesome) way to add dependencies to your package.json is to do so from the command line, flagging the npm install command with:</p>
+                <code><b>npm install module_name --save</b></code>
+                <h2>What can we do with Node.js?</h2>
+                <p>The sky is the limit. What you can do with it depends only on your imagination. For now lets introduce a new topic. There are two built in modules that will open some impresive features. The HTTP and URL modules.</p> <a id="blue-link" href="httpURL.html">Go to HTTP and URL Modules from here.</a>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+</body>
+
+</html>

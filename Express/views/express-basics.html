@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Antonio Montalvo">
+    <meta name="description" content="Introducing Express">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <script src="/js/jquery-3.2.1.js" type="text/javascript" charset="utf-8"></script>
+    <link rel="stylesheet" href="/css/express.css">
+    <title>Express</title>
+</head>
+
+<body>
+    <div class="jumbotron">
+        <h1 class="display-3">The Express Framework</h1>
+        <hr class="my-4">
+    </div>
+    <ul class=" nav nav-pills justify-content-end">
+        <li class="nav-item"><a class="nav-link" href="#">Introducing Express</a></li>
+        <li class="nav-item"><a class="nav-link " href="/routing">Routing in Express</a></li>
+        <li class="nav-item"><a class="nav-link" href="/schoolPage/">My Elementary School</a></li>
+    </ul>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2>What is Express?</h2>
+                <p>Express is a Node.js web application framework for HTTP servers. To make a comparision, Express is to servers what jQuery is to JavaScript.</p>
+                <h2>Installing Express</h2>
+                <p>We are going to install express using npm and a package.json file. The purpose of using it is to create the documentation for what modules (aka packages) our application depends on. To create a package.json we run <code>npm init</code> following the steps provided in the terminal. If you do this you'll notice that the file is automatically created.</p>
+                <p>To install Express run <code>npm install express --save</code></p>
+                <p>Notice two things. First a new directory <b>node_module</b> is automatically created. If you explore it, you'll see there are many other folders inside. These are the dependecies for Express. Second, if you open your package.json file you'll see "express" in dependencies.</p>
+                <h2>Review: Why are we doing this?</h2>
+                <p>Modern web applications rely on the communication between the user's browser and the server. The client will make a request and the server's logic will handle it to send something back to the client. The server will establish the connection in a predetermined port in the client's computer, execute the request and reponse using the HTTP protocol. Remember, we have already covered all of this in our introduction to Node.js. Express will make all of it easier to implement. We'll parse the URL, create routes, use methods, make calculation and more.</p>
+                <h2>Cloud Platforms</h2>
+                <p>While we are creating our server we can test its behavior locally, but once we are ready the server will no longer live in our computer. We will upload the API to a dedicated hardware. There are many options for this, but the cheapest one is Heroku. Amazon web services and Google Cloud Platform are also available.</p>
+                <h2>Creating a server and routing</h2>
+                <p>At its most basic we have a file, in this case named <b>app.js</b> that starts a server and listens on a port. The app handles the routing and responds with something. Let's take a look at the most basic appplication we can build in express. Go to the terminal and run <code>node app.js</code> Then open your browser and type <b>http://localhost:3000</b>. The page is being served by Express.</p>
+                <figure>
+                    <img src="/images/minimal.png" alt="Basic Express server" >
+                    <figcaption>The code for most basic application with Express is shown above.</figcaption>
+                </figure>
+                
+                <h2>But how is Express  structurated at a deeper level. <a href="http://expressjs.com/en/4x/api.html#express" target="_blanck">Go to the  express API reference</a></h2>
+                <h4>At a glance the express API covers 5 topics</h4>
+                <div class="row">
+                    <div class="col-sm-2 topics">
+                        express()
+                        <div class="col-sm-12 sub-topic">
+                            Methods
+                        </div>
+                    </div>
+                    <div class="col-sm-2 topics">
+                        Application
+                        <div class="col-sm-4 sub-topic">
+                            Properties
+                        </div>
+                        <div class="col-sm-4 sub-topic">
+                            Events
+                        </div>
+                        <div class="col-sm-4 sub-topic">
+                            Methods
+                        </div>
+                    </div>
+                    <div class="col-sm-2 topics">
+                        Request
+                        <div class="col-sm-6 sub-topic">
+                            Properties
+                        </div>
+                        <div class="col-sm-6 sub-topic">
+                            Methods
+                        </div>
+                    </div>
+                    <div class="col-sm-2 topics">
+                        Response
+                        <div class="col-sm-6 sub-topic">
+                            Properties
+                        </div>
+                        <div class="col-sm-6 sub-topic">
+                            Methods
+                        </div>
+                    </div>
+                    <div class="col-sm-2 topics">
+                        Router
+                        <div class="col-sm-12 sub-topic">
+                            Methods
+                        </div>
+                    </div>
+                </div>
+                <p>Lets' dive into the main stuff. Express has an important method, <b>express.static(root, [options])</b></p>
+                <h2>express.static()</h2>
+                <p>To serve static files such as images, CSS files, and JavaScript files, use the express.static built-in middleware function in Express. Pass the name of the directory that contains the static assets to the express.static middleware function to start serving the files directly.</p>
+                <p>e.g <code>app.use(express.static('public'));</code></p>
+                <p>Express looks up the files relative to the static directory, so the name of the static directory is not part of the URL. To create a virtual path prefix (where the path does not actually exist in the file system) for files that are served by the express.static function, specify a mount path for the static directory. It’s safer to use the absolute path of the directory that you want to serve. Like this: <code>app.use('/static', express.static(path.join(__dirname, 'public')));</code></p>
+                <h2>The app object is the Express application</h2>
+                <p>The app object has methods for:</p>
+                <ul>
+                    <li>Routing HTTP requests; app.METHOD and app.param.
+                    </li>
+                    <li>Configuring middleware; app.route.</li>
+                    <li>Rendering HTML views; app.render.</li>
+                    <li>Registering a template engine; app.engine.
+                    </li>
+                </ul>
+                <p>What method to use and how depends on your proyects requirements. Let's continue our presentation developing our application even further. <a href="/routing" >Go to Routing in Express</a></p>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+</body>
+
+</html>

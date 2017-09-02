@@ -1,0 +1,75 @@
+body {
+    font-family: monospace;
+    background-color: rgba(245, 245, 245, 0.1);
+    font-size: 15px;
+}
+
+code {
+    margin-bottom: 10px;
+}
+
+
+.col-md-12 {
+    border-style: groove;
+    border-color: chartreuse;
+    border-radius: 1%;
+    margin-bottom: 10px;
+}
+
+
+.jumbotron {
+    background-color: rgba(127, 255, 0, 0.17);
+    text-align: right;
+    padding-bottom: 5px;
+}
+
+img {
+    max-width: 100%;
+    margin-bottom: 30px;
+}
+
+h2 {
+    margin-bottom: 8px;
+    margin-top: 20px;
+}
+
+h4 {
+    margin-bottom: 15px;
+    margin-top: 8px;
+    color: #8BC34A;
+}
+
+
+li.nav-item {
+    background-color: rgba(76, 175, 80, 0.38);
+    margin-left: 3px;
+    margin-right: 6px;
+}
+
+li.nav-item.active {
+    background-color: rgba(76, 175, 80, 0.38);
+}
+
+a {
+    color: blue;
+}
+
+ul {
+    margin-right: 3px;
+}
+
+#blue-link {
+    color: blue;
+}
+
+.topics {
+    background-color: rgba(121, 85, 72, 0.27);
+    color: rgba(139, 195, 74, 0.78);
+    font-size: 18px;
+    border-right: 5px solid;
+    margin-bottom: 40px;
+    }
+
+.sub-topic {
+    color: rgba(255, 152, 0, 0.68);
+}
